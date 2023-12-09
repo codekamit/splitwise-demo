@@ -1,8 +1,5 @@
 package com.splitwise.scaler.DTOs;
 
-import com.splitwise.scaler.models.ExpenseShare;
-import com.splitwise.scaler.models.Group;
-import com.splitwise.scaler.models.User;
 import lombok.Getter;
 import lombok.Setter;
 

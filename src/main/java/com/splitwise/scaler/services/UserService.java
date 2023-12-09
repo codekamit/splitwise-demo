@@ -1,7 +1,7 @@
 package com.splitwise.scaler.services;
 
 import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
-import com.splitwise.scaler.models.User;
+import com.splitwise.scaler.models_myself.User;
 import com.splitwise.scaler.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 

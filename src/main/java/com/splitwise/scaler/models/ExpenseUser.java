@@ -5,13 +5,14 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity(name="user_expense")
 @Getter
 @Setter
-@Entity
-public class ExpenseShare extends BaseModel {
+public class ExpenseUser extends BaseModel{
     @ManyToOne
     private Expense expense;
     @ManyToOne
     private User targetUser;
-    private double amountToPay;
+    private int amount;
+    private ExpenseUserType expenseUserType;
 }

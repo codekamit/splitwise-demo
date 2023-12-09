@@ -8,13 +8,20 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name="expense")
 public class Expense extends BaseModel {
+    private String description;
+    private int expenseAmount;
+
     @OneToOne
     private User expenseGeneratedBy;
+
     @ManyToOne
     private Group partOfGroup;
+
+    @Enumerated(EnumType.ORDINAL)
+    private ExpenseType expenseType;
+
     @OneToMany
-    private List<ExpenseShare> expenseShareForTargetUsers;
-    private double expenseAmount;
+    private List<ExpenseUser> expenseUsers;
 }

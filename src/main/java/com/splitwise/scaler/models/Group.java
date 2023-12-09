@@ -6,17 +6,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.List;
 
 @Getter
 @Setter
-@Entity
-public class Group extends BaseModel{
+@Entity(name="group")
+public class Group extends BaseModel {
     private String groupName;
     @ManyToMany
     private List<User> groupParticipants;
     @OneToMany
-    private List<Expense> userExpenseHistory;
+    private List<Expense> groupExpenseHistory;
     @ManyToOne
     private User groupAdmin;
 }

@@ -1,11 +1,8 @@
 package com.splitwise.scaler.DTOs;
 
-import com.splitwise.scaler.models.Expense;
-import com.splitwise.scaler.models.User;
+import com.splitwise.scaler.models_myself.Expense;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Date;
 
 @Getter
 @Setter
