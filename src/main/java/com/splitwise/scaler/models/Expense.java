@@ -13,7 +13,7 @@ public class Expense extends BaseModel {
     private String description;
     private int expenseAmount;
 
-    @OneToOne
+    @ManyToOne
     private User expenseGeneratedBy;
 
     @ManyToOne
@@ -22,6 +22,6 @@ public class Expense extends BaseModel {
     @Enumerated(EnumType.ORDINAL)
     private ExpenseType expenseType;
 
-    @OneToMany
+    @OneToMany(mappedBy = "expense")
     private List<ExpenseUser> expenseUsers;
 }

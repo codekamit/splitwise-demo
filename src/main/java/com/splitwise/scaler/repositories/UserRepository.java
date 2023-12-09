@@ -1,6 +1,7 @@
 package com.splitwise.scaler.repositories;
 
-import com.splitwise.scaler.models_myself.User;
+import com.splitwise.scaler.models.Group;
+import com.splitwise.scaler.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Override
     <S extends User> S save(S entity);
+
+    void save(Group group);
 }

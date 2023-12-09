@@ -16,7 +16,7 @@ public class Group extends BaseModel {
     private String groupName;
     @ManyToMany
     private List<User> groupParticipants;
-    @OneToMany
+    @OneToMany(mappedBy = "partOfGroup")
     private List<Expense> groupExpenseHistory;
     @ManyToOne
     private User groupAdmin;

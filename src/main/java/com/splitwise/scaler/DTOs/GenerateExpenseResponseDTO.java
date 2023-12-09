@@ -1,6 +1,6 @@
 package com.splitwise.scaler.DTOs;
 
-import com.splitwise.scaler.models_myself.Expense;
+import com.splitwise.scaler.models.Expense;
 import lombok.Getter;
 import lombok.Setter;
 
