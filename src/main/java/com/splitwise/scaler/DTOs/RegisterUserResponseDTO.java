@@ -1,11 +1,15 @@
 package com.splitwise.scaler.DTOs;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateGroupResponseDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+public class RegisterUserResponseDTO {
     private String message;
     private ResponseStatus responseStatus;
 }

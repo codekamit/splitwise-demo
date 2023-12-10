@@ -5,6 +5,7 @@ import com.splitwise.scaler.models.Group;
 import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.repositories.GroupRepository;
 import com.splitwise.scaler.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,8 +28,8 @@ public class GroupService {
         User groupAdmin = userOptional.get();
         group.setGroupName(groupName);
         group.setGroupAdmin(groupAdmin);
-        group.setGroupExpenseHistory(new ArrayList<>());
+        group.setGroupExpenses(new ArrayList<>());
         group.setGroupParticipants(new ArrayList<>());
-        userRepository.save(group);
+        groupRepository.save(group);
     }
 }

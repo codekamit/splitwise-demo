@@ -10,7 +10,10 @@ import java.util.List;
 @Setter
 @Entity(name="expense")
 public class Expense extends BaseModel {
+    @Column(name="description")
     private String description;
+
+    @Column(name="expense_amount")
     private int expenseAmount;
 
     @ManyToOne
