@@ -1,9 +1,6 @@
 package com.splitwise.scaler.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -15,6 +12,7 @@ import java.util.List;
 @Entity(name="user")
 @Getter
 @Setter
+@EntityListeners(BaseModel.class)
 public class User extends BaseModel {
     @NotNull
     @Column(name="first_name")
