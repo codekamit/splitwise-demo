@@ -6,13 +6,14 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Email;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
 
 @Entity(name="user")
 @Getter
 @Setter
-@EntityListeners(BaseModel.class)
+@EntityListeners(AuditingEntityListener.class)
 public class User extends BaseModel {
     @NotNull
     @Column(name="first_name")

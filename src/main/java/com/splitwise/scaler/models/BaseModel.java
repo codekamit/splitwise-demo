@@ -12,7 +12,6 @@ import java.util.Date;
 @Getter
 @Setter
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
 public class BaseModel {
 
     @Id
@@ -20,8 +19,12 @@ public class BaseModel {
     private Long Id;
 
     @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt;
 
     @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "last_modified")
     private Date LastModifiedOn;
 }

@@ -12,8 +12,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.util.Scanner;
 
-@EnableJpaAuditing
 @SpringBootApplication
+@EnableJpaAuditing
 public class ScalerApplication implements CommandLineRunner {
 
 	@Autowired

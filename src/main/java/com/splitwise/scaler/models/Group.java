@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
 
 @Getter
 @Setter
 @Entity(name="splitwise_group")
+@EntityListeners(AuditingEntityListener.class)
 public class Group extends BaseModel {
     @Column(name="group_name")
     @NotNull
