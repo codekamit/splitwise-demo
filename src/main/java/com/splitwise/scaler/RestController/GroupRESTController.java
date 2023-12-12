@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.*;
 public class GroupRESTController {
 
     @Autowired
-    private SettleUpService settleUpService;
-
-    @Autowired
     private GroupService groupService;
 
     @PostMapping(value="/add")
