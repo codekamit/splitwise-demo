@@ -4,20 +4,22 @@ import com.splitwise.scaler.DTOs.CreateGroupRequestDTO;
 import com.splitwise.scaler.DTOs.CreateGroupResponseDTO;
 import com.splitwise.scaler.DTOs.ResponseStatus;
 import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
+import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.services.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/group")
+@RequestMapping("/_api")
 public class GroupRESTController {
 
     @Autowired
     private GroupService groupService;
 
-    @PostMapping(value="/add")
+    @PostMapping(value="/group")
     public @ResponseBody ResponseEntity<CreateGroupResponseDTO> addGroup(@RequestBody CreateGroupRequestDTO createGroupRequestDTO) {
         CreateGroupResponseDTO createGroupResponseDTO = new CreateGroupResponseDTO();
         try {

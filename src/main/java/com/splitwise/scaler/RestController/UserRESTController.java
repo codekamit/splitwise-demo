@@ -10,13 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/_api")
 public class UserRESTController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/add")
+    @PostMapping("user")
     public @ResponseBody ResponseEntity<RegisterUserResponseDTO> registerUser(@RequestBody RegisterUserRequestDTO registerUserRequestDTO) {
         RegisterUserResponseDTO registerUserResponseDTO = new RegisterUserResponseDTO();
         try {
