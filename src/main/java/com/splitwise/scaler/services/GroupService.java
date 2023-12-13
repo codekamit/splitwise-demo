@@ -1,12 +1,11 @@
-package com.splitwise.scaler.services;
+package com.scaler.splitwise.services;
 
-import com.splitwise.scaler.exceptions.GroupCannotBeFoundException;
-import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
-import com.splitwise.scaler.models.Group;
-import com.splitwise.scaler.models.User;
-import com.splitwise.scaler.repositories.GroupRepository;
-import com.splitwise.scaler.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.scaler.splitwise.exceptions.GroupCannotBeFoundException;
+import com.scaler.splitwise.exceptions.UserCannotBeFoundException;
+import com.scaler.splitwise.models.Group;
+import com.scaler.splitwise.models.User;
+import com.scaler.splitwise.repositories.GroupRepository;
+import com.scaler.splitwise.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

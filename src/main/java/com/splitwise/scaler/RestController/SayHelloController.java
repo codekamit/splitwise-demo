@@ -1,4 +1,4 @@
-package com.splitwise.scaler.RestController;
+package com.scaler.splitwise.RestController;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

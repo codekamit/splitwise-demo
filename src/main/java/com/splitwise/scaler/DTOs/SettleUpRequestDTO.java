@@ -1,4 +1,4 @@
-package com.splitwise.scaler.DTOs;
+package com.scaler.splitwise.DTOs;
 
 public class SettleUpRequestDTO {
     private Long userId;

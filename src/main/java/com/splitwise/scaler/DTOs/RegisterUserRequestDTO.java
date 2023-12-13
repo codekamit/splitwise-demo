@@ -1,4 +1,4 @@
-package com.splitwise.scaler.DTOs;
+package com.scaler.splitwise.DTOs;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,17 +1,18 @@
-package com.splitwise.scaler.RestController;
+package com.scaler.splitwise.RestController;
 
-import com.splitwise.scaler.DTOs.*;
-import com.splitwise.scaler.DTOs.ResponseStatus;
-import com.splitwise.scaler.exceptions.GroupCannotBeFoundException;
-import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
-import com.splitwise.scaler.models.Group;
-import com.splitwise.scaler.models.User;
-import com.splitwise.scaler.services.GroupService;
-import com.splitwise.scaler.services.UserService;
+import com.scaler.splitwise.DTOs.CreateGroupRequestDTO;
+import com.scaler.splitwise.DTOs.CreateGroupResponseDTO;
+import com.scaler.splitwise.DTOs.GetGroupResponseDTO;
+import com.scaler.splitwise.DTOs.ResponseStatus;
+import com.scaler.splitwise.exceptions.GroupCannotBeFoundException;
+import com.scaler.splitwise.exceptions.UserCannotBeFoundException;
+import com.scaler.splitwise.models.Group;
+import com.scaler.splitwise.models.User;
+import com.scaler.splitwise.services.GroupService;
+import com.scaler.splitwise.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

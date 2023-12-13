@@ -1,4 +1,4 @@
-package com.splitwise.scaler.models;
+package com.scaler.splitwise.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
-public class ExpenseUser extends BaseModel{
+public class ExpenseUser extends BaseModel {
     @ManyToOne
     private Expense expense;
 

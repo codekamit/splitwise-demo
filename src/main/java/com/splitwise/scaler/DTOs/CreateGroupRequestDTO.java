@@ -1,9 +1,6 @@
-package com.splitwise.scaler.DTOs;
+package com.scaler.splitwise.DTOs;
 
 import lombok.Getter;
-import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 public class CreateGroupRequestDTO {

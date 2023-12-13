@@ -1,4 +1,4 @@
-package com.splitwise.scaler.exceptions;
+package com.scaler.splitwise.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

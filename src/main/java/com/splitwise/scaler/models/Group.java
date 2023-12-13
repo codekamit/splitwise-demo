@@ -1,4 +1,4 @@
-package com.splitwise.scaler.models;
+package com.scaler.splitwise.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

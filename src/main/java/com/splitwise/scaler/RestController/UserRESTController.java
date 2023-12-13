@@ -1,18 +1,15 @@
-package com.splitwise.scaler.RestController;
+package com.scaler.splitwise.RestController;
 
-import com.splitwise.scaler.DTOs.GetUserResponseDTO;
-import com.splitwise.scaler.DTOs.RegisterUserRequestDTO;
-import com.splitwise.scaler.DTOs.RegisterUserResponseDTO;
-import com.splitwise.scaler.DTOs.ResponseStatus;
-import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
-import com.splitwise.scaler.models.User;
-import com.splitwise.scaler.services.UserService;
+import com.scaler.splitwise.DTOs.GetUserResponseDTO;
+import com.scaler.splitwise.DTOs.RegisterUserRequestDTO;
+import com.scaler.splitwise.DTOs.RegisterUserResponseDTO;
+import com.scaler.splitwise.DTOs.ResponseStatus;
+import com.scaler.splitwise.models.User;
+import com.scaler.splitwise.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/_api")

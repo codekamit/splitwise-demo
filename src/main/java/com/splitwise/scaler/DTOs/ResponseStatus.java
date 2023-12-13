@@ -1,4 +1,4 @@
-package com.splitwise.scaler.DTOs;
+package com.scaler.splitwise.DTOs;
 
 public enum ResponseStatus {
     FAILED,

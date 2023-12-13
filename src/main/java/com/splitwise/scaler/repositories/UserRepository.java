@@ -1,7 +1,6 @@
-package com.splitwise.scaler.repositories;
+package com.scaler.splitwise.repositories;
 
-import com.splitwise.scaler.models.Group;
-import com.splitwise.scaler.models.User;
+import com.scaler.splitwise.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
