@@ -1,4 +1,4 @@
-package com.scaler.splitwise.models;
+package com.splitwise.scaler.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

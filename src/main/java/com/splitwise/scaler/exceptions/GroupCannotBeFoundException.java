@@ -1,4 +1,4 @@
-package com.scaler.splitwise.exceptions;
+package com.splitwise.scaler.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

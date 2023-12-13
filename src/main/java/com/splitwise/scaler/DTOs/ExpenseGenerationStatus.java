@@ -1,4 +1,4 @@
-package com.scaler.splitwise.DTOs;
+package com.splitwise.scaler.DTOs;
 
 public enum ExpenseGenerationStatus {
     FAILED,

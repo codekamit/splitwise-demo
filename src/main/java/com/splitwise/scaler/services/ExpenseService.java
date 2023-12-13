@@ -1,7 +1,7 @@
-package com.scaler.splitwise.services;
+package com.splitwise.scaler.services;
 
-import com.scaler.splitwise.repositories.GroupRepository;
-import com.scaler.splitwise.repositories.UserRepository;
+import com.splitwise.scaler.repositories.GroupRepository;
+import com.splitwise.scaler.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,11 +1,11 @@
-package com.scaler.splitwise.RestController;
+package com.splitwise.scaler.RestController;
 
-import com.scaler.splitwise.DTOs.GetUserResponseDTO;
-import com.scaler.splitwise.DTOs.RegisterUserRequestDTO;
-import com.scaler.splitwise.DTOs.RegisterUserResponseDTO;
-import com.scaler.splitwise.DTOs.ResponseStatus;
-import com.scaler.splitwise.models.User;
-import com.scaler.splitwise.services.UserService;
+import com.splitwise.scaler.DTOs.GetUserResponseDTO;
+import com.splitwise.scaler.DTOs.RegisterUserRequestDTO;
+import com.splitwise.scaler.DTOs.RegisterUserResponseDTO;
+import com.splitwise.scaler.DTOs.ResponseStatus;
+import com.splitwise.scaler.models.User;
+import com.splitwise.scaler.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ public class UserRESTController {
                     registerUserRequestDTO.getLastName(),
                     registerUserRequestDTO.getEmail(),
                     registerUserRequestDTO.getPassword());
-            registerUserResponseDTO.setResponseStatus(ResponseStatus.SUCCESSFUL);
+            registerUserResponseDTO.setResponseStatus(com.splitwise.scaler.DTOs.ResponseStatus.SUCCESSFUL);
             registerUserResponseDTO.setMessage("User register successfully.");
             return ResponseEntity.status(HttpStatus.CREATED).body(registerUserResponseDTO);
         }

@@ -1,4 +1,4 @@
-package com.scaler.splitwise;
+package com.splitwise.scaler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

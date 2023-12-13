@@ -1,8 +1,8 @@
-package com.scaler.splitwise.services;
+package com.splitwise.scaler.services;
 
-import com.scaler.splitwise.exceptions.UserCannotBeFoundException;
-import com.scaler.splitwise.models.User;
-import com.scaler.splitwise.repositories.UserRepository;
+import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
+import com.splitwise.scaler.models.User;
+import com.splitwise.scaler.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

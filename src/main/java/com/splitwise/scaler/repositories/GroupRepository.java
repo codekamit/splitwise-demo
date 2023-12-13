@@ -1,6 +1,6 @@
-package com.scaler.splitwise.repositories;
+package com.splitwise.scaler.repositories;
 
-import com.scaler.splitwise.models.Group;
+import com.splitwise.scaler.models.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

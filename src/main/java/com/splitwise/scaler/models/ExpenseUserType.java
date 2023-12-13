@@ -1,4 +1,4 @@
-package com.scaler.splitwise.models;
+package com.splitwise.scaler.models;
 
 public enum ExpenseUserType {
     PAID_BY,
