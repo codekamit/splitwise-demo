@@ -1,5 +1,6 @@
 package com.splitwise.scaler.services;
 
+import com.splitwise.scaler.exceptions.GroupCannotBeFoundException;
 import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
 import com.splitwise.scaler.models.Group;
 import com.splitwise.scaler.models.User;
@@ -30,6 +31,15 @@ public class GroupService {
         group.setGroupAdmin(groupAdmin);
         group.setGroupExpenses(new ArrayList<>());
         group.setGroupParticipants(new ArrayList<>());
+        group.getGroupParticipants().add(groupAdmin);
         groupRepository.save(group);
+    }
+
+    public Group getGroup(Long groupId) throws GroupCannotBeFoundException {
+        Optional<Group> groupOptional = groupRepository.findById(groupId);
+        if(groupOptional.isEmpty()) {
+            throw new GroupCannotBeFoundException();
+        }
+        return groupOptional.get();
     }
 }

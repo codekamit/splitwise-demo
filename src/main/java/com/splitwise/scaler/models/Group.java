@@ -23,7 +23,7 @@ public class Group extends BaseModel {
     @OneToMany(mappedBy = "partOfGroup")
     private List<Expense> groupExpenses;
 
-    @ManyToOne
     @NotNull
+    @ManyToOne
     private User groupAdmin;
 }

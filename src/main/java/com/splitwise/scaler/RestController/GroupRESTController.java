@@ -1,11 +1,13 @@
 package com.splitwise.scaler.RestController;
 
-import com.splitwise.scaler.DTOs.CreateGroupRequestDTO;
-import com.splitwise.scaler.DTOs.CreateGroupResponseDTO;
+import com.splitwise.scaler.DTOs.*;
 import com.splitwise.scaler.DTOs.ResponseStatus;
+import com.splitwise.scaler.exceptions.GroupCannotBeFoundException;
 import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
+import com.splitwise.scaler.models.Group;
 import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.services.GroupService;
+import com.splitwise.scaler.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +21,12 @@ public class GroupRESTController {
     @Autowired
     private GroupService groupService;
 
+    @Autowired
+    private UserService userService;
+
     @PostMapping(value="/group")
     public @ResponseBody ResponseEntity<CreateGroupResponseDTO> addGroup(@RequestBody CreateGroupRequestDTO createGroupRequestDTO) {
+        User user = userService.getUser(createGroupRequestDTO.getUserId());
         CreateGroupResponseDTO createGroupResponseDTO = new CreateGroupResponseDTO();
         try {
             groupService.createNewGroup(createGroupRequestDTO.getGroupName(), createGroupRequestDTO.getUserId());
@@ -33,6 +39,16 @@ public class GroupRESTController {
             createGroupResponseDTO.setMessage("Failed to create group.");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(createGroupResponseDTO);
         }
+    }
+
+    @GetMapping("group/{id}")
+    public GetGroupResponseDTO getGroup(@PathVariable Long id) throws GroupCannotBeFoundException {
+        Group group = groupService.getGroup(id);
+        GetGroupResponseDTO getGroupResponseDTO = new GetGroupResponseDTO();
+        getGroupResponseDTO.setId(id);
+        getGroupResponseDTO.setGroupName(group.getGroupName());
+        getGroupResponseDTO.setNoOfUsers(group.getGroupParticipants().size());
+        return getGroupResponseDTO;
     }
 
 
