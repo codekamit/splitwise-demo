@@ -1,16 +1,18 @@
 package com.splitwise.scaler.exceptions;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.time.LocalDateTime;
 
-@ControllerAdvice
-public class GlobalExceptionHandler {
+@RestControllerAdvice
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UserCannotBeFoundException.class)
     public final ResponseEntity<ErrorResponse> handleUserNotFoundException(UserCannotBeFoundException ex, WebRequest webRequest) {
         ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),
@@ -29,4 +31,15 @@ public class GlobalExceptionHandler {
                 webRequest.getDescription(false));
         return new ResponseEntity(errorResponse, HttpStatus.NOT_FOUND);
     }
+
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest webRequest) {
+        ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST,
+                ex.getFieldError().getDefaultMessage(),
+                webRequest.getDescription(false));
+        return new ResponseEntity(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+
 }

@@ -6,6 +6,7 @@ import com.splitwise.scaler.DTOs.RegisterUserResponseDTO;
 import com.splitwise.scaler.DTOs.ResponseStatus;
 import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UserRESTController {
     private UserService userService;
 
     @PostMapping("user")
-    public @ResponseBody ResponseEntity<RegisterUserResponseDTO> registerUser(@RequestBody RegisterUserRequestDTO registerUserRequestDTO) {
+    public @ResponseBody ResponseEntity<RegisterUserResponseDTO> registerUser(@Valid @RequestBody RegisterUserRequestDTO registerUserRequestDTO) {
         RegisterUserResponseDTO registerUserResponseDTO = new RegisterUserResponseDTO();
         try {
             userService.registerUser(registerUserRequestDTO.getFirstName(),

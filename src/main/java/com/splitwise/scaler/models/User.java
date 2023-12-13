@@ -27,12 +27,12 @@ public class User extends BaseModel {
     @Column(name="last_name")
     private String lastName;
 
-    @Email
+    @Email(message = "Email id is not valid.")
     @NotNull
     @Column(unique = true, name="email_id")
     private String emailId;
 
     @Column(name="password")
-    @Size(min = 8)
+    @Size(min = 8, message = "Password must be atleast 8 characters.")
     private String password;
 }
