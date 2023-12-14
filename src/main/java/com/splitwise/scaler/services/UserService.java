@@ -3,30 +3,33 @@ package com.splitwise.scaler.services;
 import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
 import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private ServiceUtils serviceUtils;
+
+    @Transactional
     public void registerUser(String firstName, String lastName, String email, String password) {
         User newUser = new User();
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setEmailId(email);
         newUser.setPassword(password);
-        userRepository.save(newUser);
+        serviceUtils.getUserRepository().save(newUser);
     }
 
+    @Transactional
     public User getUser(Long userId) throws UserCannotBeFoundException {
-        Optional<User> userOptional = userRepository.findById(userId);
-        if(userOptional.isEmpty()) {
-            throw new UserCannotBeFoundException();
-        }
-        return userOptional.get();
+        return serviceUtils.getUserFromRepository(userId);
     }
 }

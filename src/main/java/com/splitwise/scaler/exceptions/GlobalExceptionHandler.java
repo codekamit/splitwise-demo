@@ -41,5 +41,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
+    public final ResponseEntity<ErrorResponse> handleInvalidAdminException(InvalidAdminException ex, WebRequest webRequest) {
+        ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST,
+                ex.getClass().getAnnotation(ResponseStatus.class).reason(),
+                webRequest.getDescription(false));
+        return new ResponseEntity(errorResponse, HttpStatus.BAD_REQUEST);
+    }
 
 }
