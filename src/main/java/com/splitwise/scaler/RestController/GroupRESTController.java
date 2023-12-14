@@ -49,8 +49,8 @@ public class GroupRESTController {
     }
 
     @PostMapping("groups/{groupId}/members")
-    public ResponseEntity<ResponseMessage> addMembers(@RequestBody AddMemberRequestDTO addMemberRequestDTO) {
-        groupService.addToGroup(addMemberRequestDTO.getUserIds(), addMemberRequestDTO.getGroupId(), addMemberRequestDTO.getAdminId());
+    public ResponseEntity<ResponseMessage> addMembers(@RequestBody AddMemberRequestDTO addMemberRequestDTO, @PathVaribale Long groupId) {
+        groupService.addToGroup(addMemberRequestDTO.getUserIds(), GroupId, addMemberRequestDTO.getAdminId());
         ResponseMessage responseMessage = new ResponseMessage.Builder()
                 .TimeStamp(LocalDateTime.now())
                 .HttpStatusCode(HttpStatusCode.valueOf(200))
