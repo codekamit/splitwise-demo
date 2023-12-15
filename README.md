@@ -1,2 +1,3 @@
 # splitwise-demo
-Key REST Api's for splitwise app 
+
+A few REST APIs for a demo splitwise application.
