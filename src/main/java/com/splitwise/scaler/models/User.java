@@ -3,17 +3,14 @@ package com.splitwise.scaler.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
-import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.util.List;
 
 @Entity(name="user")
 @Getter
@@ -30,7 +27,6 @@ public class User extends BaseModel {
     @Column(name="last_name")
     private String lastName;
 
-    @Email(message = "Email id is not valid.")
     @NotNull
     @Column(unique = true, name="email_id")
     private String emailId;

@@ -7,12 +7,10 @@ import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.repositories.GroupRepository;
 import com.splitwise.scaler.repositories.UserRepository;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 

@@ -1,7 +1,6 @@
 package com.splitwise.scaler.RestController;
 
 import com.splitwise.scaler.DTOs.*;
-import com.splitwise.scaler.DTOs.ResponseStatus;
 import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.services.UserService;
 import jakarta.validation.Valid;

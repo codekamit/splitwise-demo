@@ -3,14 +3,11 @@ package com.splitwise.scaler.RestController;
 import com.splitwise.scaler.DTOs.*;
 import com.splitwise.scaler.DTOs.ResponseStatus;
 import com.splitwise.scaler.exceptions.GroupCannotBeFoundException;
-import com.splitwise.scaler.exceptions.UserCannotBeFoundException;
 import com.splitwise.scaler.models.Group;
 import com.splitwise.scaler.models.User;
 import com.splitwise.scaler.services.GroupService;
-import com.splitwise.scaler.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +22,6 @@ public class GroupRESTController {
 
     @Autowired
     private GroupService groupService;
-
-    @Autowired
-    private UserService userService;
 
     @PostMapping(value="groups")
     public @ResponseBody ResponseEntity<CreateGroupResponseDTO> addGroup(@Valid @RequestBody CreateGroupRequestDTO createGroupRequestDTO) {
@@ -49,8 +43,8 @@ public class GroupRESTController {
     }
 
     @PostMapping("groups/{groupId}/members")
-    public ResponseEntity<ResponseMessage> addMembers(@RequestBody AddMemberRequestDTO addMemberRequestDTO, @PathVaribale Long groupId) {
-        groupService.addToGroup(addMemberRequestDTO.getUserIds(), GroupId, addMemberRequestDTO.getAdminId());
+    public ResponseEntity<ResponseMessage> addMembers(@RequestBody AddMemberRequestDTO addMemberRequestDTO, @PathVariable Long groupId) {
+        groupService.addToGroup(addMemberRequestDTO.getUserIds(), groupId, addMemberRequestDTO.getAdminId());
         ResponseMessage responseMessage = new ResponseMessage.Builder()
                 .TimeStamp(LocalDateTime.now())
                 .HttpStatusCode(HttpStatusCode.valueOf(200))

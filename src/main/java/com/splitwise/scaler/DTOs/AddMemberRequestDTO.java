@@ -9,6 +9,5 @@ import java.util.List;
 @Setter
 public class AddMemberRequestDTO {
     List<Long> userIds;
-    private long groupId;
     private long adminId;
 }
