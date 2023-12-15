@@ -14,12 +14,13 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UserCannotBeFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public final ResponseEntity<ErrorResponse> handleUserNotFoundException(UserCannotBeFoundException ex, WebRequest webRequest) {
         ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),
                 HttpStatus.NOT_FOUND,
                 ex.getClass().getAnnotation(ResponseStatus.class).reason(),
                 webRequest.getDescription(false));
-        return new ResponseEntity(errorResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(GroupCannotBeFoundException.class)
@@ -29,10 +30,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.NOT_FOUND,
                 ex.getClass().getAnnotation(ResponseStatus.class).reason(),
                 webRequest.getDescription(false));
-        return new ResponseEntity(errorResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
     @Override
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest webRequest) {
         ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST,
@@ -41,12 +43,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-    public final ResponseEntity<ErrorResponse> handleInvalidAdminException(InvalidAdminException ex, WebRequest webRequest) {
+    @ExceptionHandler(InvalidAdminException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ErrorResponse> handleInvalidAdminException(InvalidAdminException ex, WebRequest webRequest) {
         ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST,
                 ex.getClass().getAnnotation(ResponseStatus.class).reason(),
                 webRequest.getDescription(false));
         return new ResponseEntity(errorResponse, HttpStatus.BAD_REQUEST);
     }
-
 }
